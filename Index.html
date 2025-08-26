@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navis Games V3</title>
+  <style>
+    :root {
+      --bg: #000;
+      --red: #ff0033;
+      --glow-red: 0 0 5px #ff0033, 0 0 15px #ff0033, 0 0 25px #ff0033, 0 0 45px #ff0033;
+      --glow-white: 0 0 6px #fff, 0 0 12px #fff, 0 0 20px #fff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    /* Title */
+    .title {
+      font-size: clamp(32px, 6vw, 64px);
+      color: var(--red);
+      text-align: center;
+      text-shadow: var(--glow-red);
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    /* Grid for boxes (longer rows) */
+    .grid {
+      width: min(1200px, 100%);
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* smaller min width = more boxes per row */
+      gap: 14px;
+      z-index: 1;
+    }
+
+    .card {
+      background: rgba(255, 0, 51, 0.08);
+      border: 2px solid rgba(255, 0, 51, 0.6);
+      border-radius: 12px;
+      box-shadow: var(--glow-red);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 15px #ff0033, 0 0 30px #ff0033;
+    }
+
+    .card a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #fff;
+      padding: 8px;
+    }
+
+    .thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+    }
+
+    .thumb img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .label {
+      margin-top: 4px;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: var(--glow-red);
+      font-size: 0.85rem;
+    }
+
+    /* Snow animation */
+    .snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .snow span {
+      position: absolute;
+      top: -10px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: var(--glow-white);
+      opacity: 0.9;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(100vh); }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">Navis Games V3</h1>
+
+  <div class="grid">
+    <!-- Add as many boxes as you like -->
+    <div class="card"><a href="github.com"><div class="thumb"><img src="https://cdn3.iconfinder.com/data/icons/inficons/512/github.png"></div><div class="label">Github</div></a></div>
+    <div class="card"><a href="https://utopiaweb.org/math/hvtrs8%2F-wuw%2Cpknvepeqt%2Ccmm-"><div class="thumb"><img src="https://www.iconarchive.com/download/i54058/danleech/simple/pinterest.1024.png"></div><div class="label">Pintrest</div></a></div>
+    <div class="card"><a href="https://utopiaweb.org/math/hvtrs8%2F-orel.qpmtkf%7B.aoo%2F"><div class="thumb"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/1200px-Spotify_icon.svg.png"></div><div class="label">Spotify</div></a></div>
+    <div class="card"><a href="https://utopiaweb.org/math/hvtrs8%2F-Dksaopd%2Ccmm"><div class="thumb"><img src="https://getsby.com/wp-content/uploads/2024/09/Cancel-Discord-Subscription.webp"></div><div class="label">Disocrd</div></a></div>
+    <div class="card"><a href="https://utopiaweb.org/math/hvtrs8%2F-wuw%2Cy%3A.aoo"><div class="thumb"><img src="https://img.utdstc.com/icon/993/efd/993efdd1f4ac515d047bfa5ae3b391ae6845b7b2171dfccad62bdb09d4dfca6e:200"></div><div class="label">Y8 Games</div></a></div>
+    <div class="card"><a href="https://utopiaweb.org/math/hvtrs8%2F-wuw%2Crgdfiv.aoo%2F"><div class="thumb"><img src="https://www.iconpacks.net/icons/2/free-reddit-logo-icon-2436-thumb.png"></div><div class="label">Reddit</div></a></div>
+    <div class="card"><a href="https://utopiaweb.org/math/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F"><div class="thumb"><img src="https://files.softicons.com/download/application-icons/circle-icons-add-on-1-by-martz90/png/512x512/nvidia.png"></div><div class="label">Geforce </div></a></div>
+    <div class="card"><a href="https://utopiaweb.org/math/hvtrs8%2F-Nmw%2Cge"><div class="thumb"><img src="https://play-lh.googleusercontent.com/K8hqX8qggrhZHfldLEoXpeN0vR6-nuDJc1hwZcIGsLVWBs52T9dWPuExq5QfHTxI8g"></div><div class="label">Now.gg</div></a></div>
+
+    <div class="card"><a href="https://utopiaweb.org/math/hvtrs8%2F-wuw%2Ccpaxyeaoeq.aoo%2F"><div class="thumb"><img src="https://avatars.githubusercontent.com/u/34684288?s=280&v=4"></div><div class="label">Crazygames</div></a></div>
+    <div class="card"><a href="#"><div class="thumb"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwROf_FVSh9WkFeG15X-kVysnKddaMHvxSEA&s"></div><div class="label">Coolmath</div></a></div>
+    <div class="card"><a href="https://utopiaweb.org/math/hvtrs8%2F-Cjavgrt%2Ccmm"><div class="thumb"><img src="https://static.vecteezy.com/system/resources/previews/042/165/837/non_2x/chatgpt-icon-green-and-white-icon-free-png.png"></div><div class="label">ChatGpt</div></a></div>
+  </div>
+  
+  
+
+  <!-- Snow layer -->
+  <div class="snow" id="snow"></div>
+
+  <script>
+    const snowContainer = document.getElementById("snow");
+    for (let i = 0; i < 100; i++) {
+      const dot = document.createElement("span");
+      const size = Math.random() * 5 + 2;
+      dot.style.width = dot.style.height = size + "px";
+      dot.style.left = Math.random() * 100 + "vw";
+      dot.style.animationDuration = (Math.random() * 5 + 5) + "s";
+      dot.style.animationDelay = Math.random() * 5 + "s";
+      snowContainer.appendChild(dot);
+    }
+  </script>
+</body>
+</html>
